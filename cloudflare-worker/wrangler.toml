@@ -1,0 +1,11 @@
+name = "al-akseer-ai-proxy"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+# NOTE: DO NOT PUT YOUR GEMINI API KEY IN THIS FILE!
+# To set your secret key securely, run:
+#   npx wrangler secret put GEMINI_API_KEY
+# and paste your key when prompted.
+
+[vars]
+GEMINI_MODEL = "gemini-3-flash-preview"

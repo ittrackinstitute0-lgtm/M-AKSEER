@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL AKSEER ABBASI | Premium 3D Dry Fruits & Exotic Nuts</title>
+    
+    <!-- Meta tags for SEO & Social -->
+    <meta name="description" content="AL AKSEER ABBASI Dry Fruits - Handpicked royal almonds, pistachios, Ajwa dates, Kashmiri walnuts, pure saffron, and luxury gift boxes on Quetta Road, Jacobabad. 100% Free Express Delivery.">
+    <meta name="keywords" content="AL AKSEER ABBASI, dry fruits, pistachios, badam, almonds, akhrot, kaju, chilgoza, ajwa dates, saffron, jacobabad, quetta road, 3D shop">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <header class="announcement-bar">
+        <div class="announcement-content">
+            <i class="fas fa-certificate text-gold"></i>
+            <span id="announcement-text">✨ Free Express Delivery on All Orders | Quetta Road, Jacobabad (Phone/WhatsApp: 03353320944) ✨</span>
+        </div>
+        <div class="announcement-links">
+            <a href="tel:03353320944" class="store-phone-text"><i class="fas fa-phone-alt"></i> 03353320944</a>
+            <a href="admin.html" class="btn-admin-nav"><i class="fas fa-lock"></i> Admin Portal</a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-symbol">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title store-name-text">AL AKSEER ABBASI</span>
+                    <span class="brand-subtitle">Royal Dry Fruits & Nuts</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="nav-links-menu">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#shop">Shop Dry Fruits</a></li>
+                <li><a href="#heritage">Our Heritage</a></li>
+                <li><a href="#reviews">Customer Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="admin.html" class="btn-admin-nav" title="Manage Store & Orders">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Admin</span>
+                </a>
+
+                <button class="btn-cart-nav" id="cart-toggle-btn" aria-label="View Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count-badge" style="display: none;">0</span>
+                </button>
+
+                <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 3D HERO SECTION -->
+        <section id="hero" class="hero-3d-section">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge-pill">
+                        <i class="fas fa-award text-gold"></i> 100% Organic & Naturally Sun-Dried
+                    </div>
+                    <h1 class="hero-title">
+                        Pure Nature's Royalty <br>
+                        <span class="highlight-gold">AL AKSEER ABBASI</span>
+                    </h1>
+                    <p class="hero-description">
+                        Fresh Badam, jumbo Iranian pistachios, and supreme cashews at only Rs. 999/kg with 100% Free Delivery! Direct from Quetta Road, Jacobabad to your doorstep.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#shop" class="btn btn-gold">
+                            <i class="fas fa-shopping-cart"></i> Explore 3D Catalog
+                        </a>
+                        <a href="#contact" class="btn btn-outline-gold store-whatsapp-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Order
+                        </a>
+                    </div>
+
+                    <div class="hero-stats-row">
+                        <div class="hero-stat-item">
+                            <h4>100%</h4>
+                            <span>Pure & Fresh</span>
+                        </div>
+                        <div class="hero-stat-item">
+                            <h4>4.9 ★</h4>
+                            <span>Top Customer Rating</span>
+                        </div>
+                        <div class="hero-stat-item">
+                            <h4>15k+</h4>
+                            <span>Satisfied Families</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Interactive Stage -->
+                <div class="hero-3d-stage">
+                    <div id="hero-3d-canvas-container" class="canvas-container" title="Click & Drag to rotate in 3D">
+                        <!-- Three.js Canvas gets injected here -->
+                    </div>
+
+                    <!-- 3D Model Switcher Bar -->
+                    <div class="model-selector-bar">
+                        <button class="model-btn active" data-model="pistachio" onclick="DryFruit3D.switchModel('pistachio')">Pistachio</button>
+                        <button class="model-btn" data-model="almond" onclick="DryFruit3D.switchModel('almond')">Almond</button>
+                        <button class="model-btn" data-model="cashew" onclick="DryFruit3D.switchModel('cashew')">Cashew</button>
+                        <button class="model-btn" data-model="walnut" onclick="DryFruit3D.switchModel('walnut')">Walnut</button>
+                        <button class="model-btn" data-model="date" onclick="DryFruit3D.switchModel('date')">Ajwa Date</button>
+                        <button class="model-btn" data-model="saffron" onclick="DryFruit3D.switchModel('saffron')">Saffron</button>
+                        <button class="model-btn" data-model="giftbox" onclick="DryFruit3D.switchModel('giftbox')">Gift Box</button>
+                    </div>
+
+                    <div class="stage-hint">
+                        <i class="fas fa-hand-pointer"></i> <span>Drag to rotate 3D view | Orbit auto-rotates</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES VALUE PROPOSITION -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-wrap"><i class="fas fa-seedling"></i></div>
+                    <div class="feature-texts">
+                        <h4>Direct Farm Sourcing</h4>
+                        <p>Directly procured from high-altitude valleys and certified orchards.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-wrap"><i class="fas fa-box"></i></div>
+                    <div class="feature-texts">
+                        <h4>Airtight Vacuum Sealed</h4>
+                        <p>Nitrogen flushed ziplock packing preserves peak crispness & oils.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-wrap"><i class="fas fa-shipping-fast"></i></div>
+                    <div class="feature-texts">
+                        <h4>Express Nationwide Delivery</h4>
+                        <p>Fast track dispatch with safe delivery right to your door.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                    <div class="feature-texts">
+                        <h4>100% Purity Guarantee</h4>
+                        <p>Zero artificial polishes, zero preservatives, 100% natural crunch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHOP & PRODUCTS SECTION -->
+        <section id="shop" class="shop-section">
+            <div class="section-header-centered">
+                <span class="section-subheading">Handpicked Royal Selection</span>
+                <h2 class="section-heading">Explore Our Dry Fruits Collection</h2>
+                <p class="section-lead">Select your desired weight packaging (250g, 500g, or 1kg) or inspect any dry fruit in interactive 3D.</p>
+            </div>
+
+            <!-- Toolbar Filters -->
+            <div class="catalog-toolbar">
+                <div class="category-pills-row">
+                    <button class="cat-pill active" data-category="All">All Delights</button>
+                    <button class="cat-pill" data-category="Pistachios">Pistachios (Pista)</button>
+                    <button class="cat-pill" data-category="Almonds">Almonds (Badam)</button>
+                    <button class="cat-pill" data-category="Cashews">Cashews (Kaju)</button>
+                    <button class="cat-pill" data-category="Walnuts">Walnuts (Akhrot)</button>
+                    <button class="cat-pill" data-category="Dates">Dates (Khajoor)</button>
+                    <button class="cat-pill" data-category="Figs & Raisins">Figs & Raisins</button>
+                    <button class="cat-pill" data-category="Exotics">Saffron & Exotics</button>
+                    <button class="cat-pill" data-category="Gift Boxes">Gift Boxes</button>
+                </div>
+
+                <div class="toolbar-search-sort">
+                    <div class="search-input-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search dry fruits, nuts...">
+                    </div>
+
+                    <div class="sort-select-box">
+                        <select id="sort-select">
+                            <option value="featured">Featured First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="products-grid">
+                <!-- Product cards dynamically populated by App.renderCatalog() -->
+            </div>
+        </section>
+
+        <!-- HERITAGE & CRAFTSMANSHIP SECTION -->
+        <section id="heritage" class="heritage-section">
+            <div class="heritage-grid">
+                <div class="heritage-image-stack">
+                    <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=800&q=80" alt="AL AKSEER ABBASI Heritage" class="heritage-main-img">
+                    <div class="heritage-badge-floating">
+                        <h4>Generations of Trust</h4>
+                        <p>Providing pure, unadulterated dry fruits in Jacobabad.</p>
+                    </div>
+                </div>
+
+                <div class="heritage-content">
+                    <span class="section-subheading">The Royal Abbasi Tradition</span>
+                    <h2>A Legacy of Honoring Pure Nature</h2>
+                    <p>
+                        At <strong>AL AKSEER ABBASI</strong>, dry fruits are more than snacks; they are an ancient symbol of royal hospitality, robust vitality, and celebration. Located on Quetta Road, Jacobabad, we bring you fresh harvest Badam, Pista, and Kaju at Rs. 999/kg with 100% Free Express Delivery across Pakistan.
+                    </p>
+                    <ul class="quality-checks-list">
+                        <li><i class="fas fa-check-circle"></i> Hand-graded kernels ensuring zero bitterness and maximum size</li>
+                        <li><i class="fas fa-check-circle"></i> Cold-temperature stored to preserve essential Omega fatty acids & natural oils</li>
+                        <li><i class="fas fa-check-circle"></i> Certified Grade A Mongra Saffron tested for intense color and crocin potency</li>
+                        <li><i class="fas fa-check-circle"></i> Custom festive and wedding dry fruit gift hamper packaging available</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="reviews" class="testimonials-section">
+            <div class="section-header-centered">
+                <span class="section-subheading">Loved Across Pakistan & Abroad</span>
+                <h2 class="section-heading">What Our Valued Patrons Say</h2>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "The Kagzi Badam and Pista from AL AKSEER ABBASI are genuinely unmatched. Unbelievable price of Rs. 999/kg with free delivery straight to our home!"
+                    </p>
+                    <div class="reviewer-meta">
+                        <div class="reviewer-avatar">H</div>
+                        <div class="reviewer-info">
+                            <h4>Hamza Tariq Abbasi</h4>
+                            <span>Islamabad • Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "Ordered the Imperial Dry Fruit Gift Box for my father-in-law. The wooden craftsmanship and jumbo pistachios inside were breathtaking. Will definitely order all our winter supplies here."
+                    </p>
+                    <div class="reviewer-meta">
+                        <div class="reviewer-avatar">S</div>
+                        <div class="reviewer-info">
+                            <h4>Syeda Maryam</h4>
+                            <span>Lahore • Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "Madinah Ajwa dates were fresh, soft, and authentic with original date seeds. The 3D view on the website let me inspect the products before ordering. Top notch service!"
+                    </p>
+                    <div class="reviewer-meta">
+                        <div class="reviewer-avatar">B</div>
+                        <div class="reviewer-info">
+                            <h4>Bilal Qureshi</h4>
+                            <span>Karachi • Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3 class="store-name-text">AL AKSEER ABBASI</h3>
+                <p>
+                    Jacobabad's premier destination for pure dry fruits, royal nuts, organic Ajwa dates, and Kashmiri saffron. Open daily from 6:00 AM to 12:00 AM with 100% Free Express Delivery!
+                </p>
+                <div class="announcement-links">
+                    <a href="admin.html" class="btn-admin-nav"><i class="fas fa-shield-alt"></i> Store Admin Portal</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#shop">Shop All Products</a></li>
+                    <li><a href="#heritage">About AL AKSEER ABBASI</a></li>
+                    <li><a href="#reviews">Customer Reviews</a></li>
+                    <li><a href="admin.html">Staff & Admin Login</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#shop">Royal Pistachios (Rs. 999/kg)</a></li>
+                    <li><a href="#shop">Kashmiri Badam (Rs. 999/kg)</a></li>
+                    <li><a href="#shop">King Cashews (Rs. 999/kg)</a></li>
+                    <li><a href="#shop">Ajwa & Medjool Dates</a></li>
+                    <li><a href="#shop">Imperial Gift Boxes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Direct Contact</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Quetta Road, Jacobabad, Sindh, Pakistan</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="store-phone-text">03353320944</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/923353320944" class="store-whatsapp-link" target="_blank">WhatsApp: 03353320944</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Daily: 6:00 AM - 12:00 AM (6.00 to 12.00)</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-shipping-fast text-gold"></i>
+                        <span>100% Free Delivery on All Orders</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <p>© 2026 AL AKSEER ABBASI Dry Fruits. All Rights Reserved. Crafted with pure HTML & CSS.</p>
+                <div class="payments-supported">
+                    <span>Cash on Delivery | Online Bank Transfer | WhatsApp Direct Order</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART SLIDE-IN DRAWER -->
+    <div class="cart-backdrop" id="cart-backdrop"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Dry Fruit Cart</h3>
+            <button class="btn-close-drawer" id="cart-close-btn" aria-label="Close Cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Free Delivery Tracker -->
+        <div class="cart-shipping-notice">
+            <div class="shipping-bar-text" id="free-shipping-text">
+                Add <strong>Rs. 3,500</strong> to enjoy FREE express shipping!
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="free-shipping-progress"></div>
+            </div>
+        </div>
+
+        <!-- Cart Items List -->
+        <div class="cart-body" id="cart-items-list">
+            <!-- Items injected by App.renderCartItems() -->
+        </div>
+
+        <!-- Empty Cart Display -->
+        <div class="cart-empty" id="cart-empty-view" style="display: none;">
+            <i class="fas fa-shopping-basket"></i>
+            <h4>Your Bag is Empty</h4>
+            <p>Explore our fresh almonds, pistachios, and dates to fill it up!</p>
+            <button class="btn btn-gold" style="margin-top: 14px;" onclick="App.closeCart()">Start Shopping</button>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="cart-footer" id="cart-footer-view">
+            <div class="cart-cost-row">
+                <span>Subtotal:</span>
+                <strong id="cart-subtotal-val">Rs. 0</strong>
+            </div>
+            <div class="cart-cost-row">
+                <span>Estimated Shipping:</span>
+                <span id="cart-delivery-val">Rs. 250</span>
+            </div>
+            <div class="cart-cost-row grand-total">
+                <span>Total Bill:</span>
+                <strong id="cart-grand-total-val">Rs. 0</strong>
+            </div>
+
+            <button class="btn btn-gold btn-checkout-drawer" id="cart-checkout-btn">
+                <i class="fas fa-shield-check"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-truck-loading text-gold"></i> Complete Your Order</h3>
+                <button class="btn-close-modal" id="close-checkout-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="checkout-form">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="cust-name">Full Name *</label>
+                            <input type="text" id="cust-name" placeholder="e.g. Haji Muhammad Tariq" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cust-phone">WhatsApp / Mobile Number *</label>
+                            <input type="tel" id="cust-phone" placeholder="e.g. 0300 1234567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cust-city">City *</label>
+                            <input type="text" id="cust-city" placeholder="e.g. Islamabad, Lahore, Karachi" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="cust-address">Complete Street Address *</label>
+                            <textarea id="cust-address" rows="2" placeholder="House #, Street #, Sector/Area, Landmark..." required></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="cust-notes">Delivery Instructions (Optional)</label>
+                            <input type="text" id="cust-notes" placeholder="e.g. Pack as gift, call before delivery...">
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <label style="font-size: 0.85rem; font-weight: 700; color: var(--primary-green); display: block; margin-top: 10px;">Select Payment Option:</label>
+                    <div class="payment-methods-grid">
+                        <label class="payment-method-card">
+                            <input type="radio" name="payment_method" value="Cash on Delivery" checked>
+                            <div>
+                                <strong>Cash on Delivery (COD)</strong>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">Pay cash when rider arrives</div>
+                            </div>
+                        </label>
+                        <label class="payment-method-card">
+                            <input type="radio" name="payment_method" value="Direct Bank Transfer">
+                            <div>
+                                <strong>Bank Transfer / EasyPaisa</strong>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">Transfer receipt on WhatsApp</div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Order Summary Box -->
+                    <div id="checkout-order-summary" style="background: #faf7f2; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px; margin: 14px 0;"></div>
+
+                    <div style="display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap;">
+                        <button type="submit" class="btn btn-gold" style="flex: 1;">
+                            <i class="fas fa-check-circle"></i> Place Order (COD)
+                        </button>
+                        <button type="button" class="btn btn-outline-gold" id="checkout-whatsapp-btn" style="flex: 1; background: #25d366; color: #ffffff; border-color: #25d366;">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D PRODUCT INSPECTOR MODAL -->
+    <div class="modal-overlay" id="product-3d-modal">
+        <div class="modal-card modal-3d-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-cube text-gold"></i> 360° Interactive 3D Inspection</h3>
+                <button class="btn-close-modal" id="close-3d-modal-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-3d-layout">
+                    <div class="modal-3d-canvas-box" id="modal-3d-canvas-container" title="Drag with mouse to rotate">
+                        <!-- Three.js 3D modal canvas dynamically rendered here -->
+                    </div>
+                    <div class="modal-3d-info" style="display: flex; flex-direction: column; justify-content: center;">
+                        <span class="product-category" id="modal-3d-category">AL AKSEER ABBASI SELECT</span>
+                        <h2 id="modal-3d-title" style="font-family: var(--font-heading); color: var(--primary-green); margin: 6px 0 12px;">Product Name</h2>
+                        <p id="modal-3d-desc" style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+                            Inspecting 3D organic mesh geometry. Rotatable across all 3 axes in real-time.
+                        </p>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: var(--primary-green); margin-bottom: 20px;" id="modal-3d-price">
+                            Rs. 0
+                        </div>
+                        <button class="btn btn-gold" id="modal-3d-add-cart-btn">
+                            <i class="fas fa-cart-plus"></i> Add to Cart Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK DETAILS MODAL -->
+    <div class="modal-overlay" id="quickview-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="qv-product-category">Dry Fruit Details</h3>
+                <button class="btn-close-modal" id="close-quickview-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px;">
+                    <div>
+                        <img id="qv-product-image" src="" alt="Dry Fruit" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px;">
+                    </div>
+                    <div>
+                        <h2 id="qv-product-title" style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--primary-green); margin-bottom: 8px;">Product Title</h2>
+                        <div id="qv-product-stock" style="margin-bottom: 12px;"></div>
+                        <p id="qv-product-desc" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6;"></p>
+                        <div id="qv-product-price" style="font-size: 1.5rem; font-weight: 800; color: var(--primary-green); margin-bottom: 18px;"></div>
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <input type="number" id="qv-quantity-input" value="1" min="1" max="50" style="width: 60px; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: 700;">
+                            <button class="btn btn-gold" id="qv-add-cart-btn" style="flex: 1;"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                            <button class="btn btn-outline-gold" id="qv-inspect-3d-btn" title="Inspect 3D"><i class="fas fa-cube"></i> 3D</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="order-confirmation-modal">
+        <div class="modal-card" style="text-align: center; padding: 40px 30px;">
+            <div style="width: 72px; height: 72px; background: #dcfce7; color: #15803d; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 20px;">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--primary-green); margin-bottom: 8px;">Order Placed Successfully!</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+                Thank you for choosing AL AKSEER ABBASI. Your fresh dry fruits are being carefully packaged in airtight protective boxes.
+            </p>
+            <div style="background: #faf7f2; border: 1px solid var(--border-color); padding: 16px; border-radius: 12px; margin-bottom: 24px; display: inline-block; min-width: 240px;">
+                <div style="font-size: 0.8rem; color: var(--text-muted);">ORDER REFERENCE NUMBER</div>
+                <div id="confirm-order-id" style="font-size: 1.6rem; font-weight: 800; color: var(--primary-green); letter-spacing: 1px;">#AKA-0000</div>
+                <div id="confirm-order-total" style="font-size: 1rem; font-weight: 700; color: var(--gold-dark); margin-top: 4px;">Rs. 0</div>
+            </div>
+            <div>
+                <button class="btn btn-gold" id="close-confirm-btn"><i class="fas fa-shopping-bag"></i> Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON (Positioned neatly above AI Chatbot) -->
+    <a href="https://wa.me/923353320944?text=Assalam-o-Alaikum%20AL%20AKSEER%20ABBASI!%20I%20would%20like%20to%20inquire%20about%20dry%20fruits." class="floating-whatsapp-btn store-whatsapp-link" target="_blank" aria-label="Direct WhatsApp Inquiry">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS -->
+    <!-- Three.js 3D Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Application Data & Logic -->
+    <script src="js/data.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- AI Chatbot (Google Gemini 3 Cloudflare Proxy) -->
+    <script src="js/chatbot-config.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

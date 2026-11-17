@@ -1,0 +1,22 @@
+{
+  "name": "al-akseer-ai-proxy",
+  "version": "1.0.0",
+  "description": "Secure Cloudflare Worker Proxy for AL AKSEER ABBASI AI Chatbot using Google Gemini 3 API",
+  "main": "worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "set-secret": "wrangler secret put GEMINI_API_KEY"
+  },
+  "keywords": [
+    "cloudflare-worker",
+    "gemini-3",
+    "chatbot",
+    "al-akseer-abbasi"
+  ],
+  "author": "AL AKSEER ABBASI",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL AKSEER ABBASI | Admin Portal & Store Management</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- AUTHENTICATION LOGIN MODAL -->
+    <div class="admin-login-overlay" id="admin-login-modal">
+        <div class="admin-login-box">
+            <div class="login-brand-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h2>AL AKSEER ABBASI</h2>
+            <p>Authorized Admin Portal & Inventory Management</p>
+
+            <form id="admin-login-form">
+                <div class="login-form-group">
+                    <label for="admin-password-input">Admin Access Password</label>
+                    <div class="login-input-wrap">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="admin-password-input" placeholder="Enter password (demo: admin123)" required autofocus>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-admin-submit">
+                    <i class="fas fa-unlock-alt"></i> Access Dashboard
+                </button>
+            </form>
+
+            <div class="login-demo-hint">
+                <span>Default Demo Password: <strong>admin123</strong></span> <br>
+                <button type="button" class="btn-quick-login" id="quick-login-btn">
+                    <i class="fas fa-magic"></i> One-Click Demo Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN DASHBOARD WRAPPER -->
+    <div class="admin-layout" id="admin-app-wrapper" style="display: none;">
+        
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div>
+                    <div class="sidebar-title">AL AKSEER ABBASI</div>
+                    <div class="sidebar-badge">Admin Dashboard</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="admin-nav-item active" data-tab="dashboard">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Overview Stats</span>
+                </div>
+                <div class="admin-nav-item" data-tab="products">
+                    <i class="fas fa-box-open"></i>
+                    <span>Products & Stock</span>
+                </div>
+                <div class="admin-nav-item" data-tab="orders">
+                    <i class="fas fa-receipt"></i>
+                    <span>Customer Orders</span>
+                </div>
+                <div class="admin-nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Store Settings</span>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn-sidebar-shop" target="_blank">
+                    <i class="fas fa-store"></i>
+                    <span>View Live Shop</span>
+                </a>
+                <button class="btn-sidebar-logout" id="admin-logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Log Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN VIEW -->
+        <main class="admin-main">
+            <!-- Topbar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <h2>Store Management Console</h2>
+                </div>
+                <div class="topbar-right">
+                    <div class="store-live-pill">
+                        <span class="live-dot"></span>
+                        <span>Shop Online & Synced</span>
+                    </div>
+                    <div class="admin-avatar-block">
+                        <div class="admin-avatar">A</div>
+                        <div>
+                            <strong style="font-size: 0.88rem; display: block;">Administrator</strong>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">AL AKSEER ABBASI</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dynamic View Body -->
+            <div class="admin-view-body">
+
+                <!-- TAB 1: OVERVIEW DASHBOARD -->
+                <section class="admin-tab-content active" id="tab-dashboard">
+                    <!-- KPI Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap icon-revenue">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h4>Total Sales Revenue</h4>
+                                <div class="stat-value" id="stat-total-revenue">Rs. 0</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap icon-orders">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h4>Total Orders</h4>
+                                <div class="stat-value" id="stat-total-orders">0</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap icon-products">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h4>Dry Fruit Items</h4>
+                                <div class="stat-value" id="stat-total-products">0</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap icon-stock">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h4>Low Stock Alert</h4>
+                                <div class="stat-value" id="stat-low-stock">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders Card -->
+                    <div class="card-panel">
+                        <div class="panel-header-row">
+                            <h3><i class="fas fa-history text-muted"></i> Recent Customer Orders</h3>
+                            <button class="btn btn-primary" onclick="document.querySelector('.admin-nav-item[data-tab=\'orders\']').click()">
+                                View All Orders
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Date & Time</th>
+                                        <th>Total Bill</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashboard-recent-orders">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 2: PRODUCTS CRUD -->
+                <section class="admin-tab-content" id="tab-products">
+                    <div class="card-panel">
+                        <div class="panel-header-row">
+                            <h3><i class="fas fa-boxes"></i> Dry Fruits Inventory & Catalog</h3>
+                            <div class="panel-controls">
+                                <input type="text" id="admin-prod-search" class="admin-search-input" placeholder="Search catalog...">
+                                <button class="btn btn-primary" id="add-product-btn">
+                                    <i class="fas fa-plus-circle"></i> Add New Dry Fruit
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product Title</th>
+                                        <th>Category</th>
+                                        <th>Base Price (500g)</th>
+                                        <th>Stock</th>
+                                        <th>3D Model</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-products-table-body">
+                                    <!-- Dynamic product rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 3: ORDERS MANAGEMENT -->
+                <section class="admin-tab-content" id="tab-orders">
+                    <div class="card-panel">
+                        <div class="panel-header-row">
+                            <h3><i class="fas fa-clipboard-list"></i> Customer Orders & Fulfillment</h3>
+                            <div class="panel-controls">
+                                <label style="font-size: 0.85rem; font-weight: 600;">Filter Status:</label>
+                                <select id="admin-order-filter" class="status-select">
+                                    <option value="All">All Statuses</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Processing">Processing</option>
+                                    <option value="Shipped">Shipped</option>
+                                    <option value="Delivered">Delivered</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order Ref</th>
+                                        <th>Customer Info</th>
+                                        <th>Placed On</th>
+                                        <th>Items Summary</th>
+                                        <th>Total Bill</th>
+                                        <th>Fulfillment Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-orders-table-body">
+                                    <!-- Dynamic order rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 4: STORE SETTINGS -->
+                <section class="admin-tab-content" id="tab-settings">
+                    <div class="card-panel" style="max-width: 800px;">
+                        <div class="panel-header-row">
+                            <h3><i class="fas fa-sliders-h"></i> Store Profile & Preferences</h3>
+                        </div>
+
+                        <form id="settings-form">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <div class="form-group">
+                                    <label for="setting-store-name">Shop Name</label>
+                                    <input type="text" id="setting-store-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-tagline">Tagline / Slogan</label>
+                                    <input type="text" id="setting-tagline">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="setting-phone">Customer Support Phone</label>
+                                    <input type="text" id="setting-phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-whatsapp">WhatsApp Ordering Number (No +)</label>
+                                    <input type="text" id="setting-whatsapp" placeholder="e.g. 923007861100">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="setting-currency">Currency Symbol</label>
+                                    <input type="text" id="setting-currency" placeholder="Rs. or PKR">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-free-delivery">Free Shipping Minimum Amount</label>
+                                    <input type="number" id="setting-free-delivery">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="setting-delivery-fee">Standard Delivery Fee</label>
+                                    <input type="number" id="setting-delivery-fee">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-address">Store Physical Address</label>
+                                    <input type="text" id="setting-address">
+                                </div>
+
+                                <div class="form-group" style="grid-column: 1 / -1;">
+                                    <label for="setting-announcement">Top Announcement Banner Text</label>
+                                    <textarea id="setting-announcement" rows="2"></textarea>
+                                </div>
+
+                                <div class="form-group" style="grid-column: 1 / -1; background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 8px; padding: 16px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                                        <label for="setting-worker-url" style="font-weight: 700; color: var(--gold-primary); display: flex; align-items: center; gap: 8px; margin: 0;">
+                                            <i class="fas fa-robot"></i> Gemini 3 AI Chatbot - Cloudflare Worker Proxy URL
+                                        </label>
+                                        <span style="font-size: 0.75rem; background: rgba(34, 197, 94, 0.2); color: #22c55e; padding: 2px 8px; border-radius: 999px; font-weight: 600;">
+                                            <i class="fas fa-shield-alt"></i> API Key Secure
+                                        </span>
+                                    </div>
+                                    <input type="url" id="setting-worker-url" placeholder="https://al-akseer-ai-proxy.your-username.workers.dev" style="width: 100%;">
+                                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; margin-bottom: 0;">
+                                        Paste your deployed Cloudflare Worker URL above. The website calls only this proxy; your Gemini 3 API key stays 100% private in Cloudflare Secrets.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-save"></i> Save Settings
+                                </button>
+                                <button type="button" class="btn btn-outline" id="export-data-btn">
+                                    <i class="fas fa-file-download"></i> Export Data Backup (JSON)
+                                </button>
+                                <button type="button" class="btn btn-outline text-danger" id="reset-demo-data-btn" style="color: #dc2626; border-color: #fca5a5;">
+                                    <i class="fas fa-redo"></i> Restore Default Mock Data
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- PRODUCT ADD / EDIT MODAL -->
+    <div class="admin-modal-overlay" id="product-modal">
+        <div class="admin-modal-card">
+            <div class="admin-modal-header">
+                <h3 id="product-modal-title">Add New Dry Fruit Product</h3>
+                <button class="btn-icon" id="close-product-modal-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="product-form">
+                    <div class="prod-preview-box">
+                        <img id="prod-img-preview" src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80" alt="Preview">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label for="prod-name-input">Product Title *</label>
+                            <input type="text" id="prod-name-input" placeholder="e.g. Royal Kashmiri Almonds (Badam Giri)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prod-cat-input">Category</label>
+                            <select id="prod-cat-input">
+                                <option value="Pistachios">Pistachios (Pista)</option>
+                                <option value="Almonds">Almonds (Badam)</option>
+                                <option value="Cashews">Cashews (Kaju)</option>
+                                <option value="Walnuts">Walnuts (Akhrot)</option>
+                                <option value="Dates">Dates (Khajoor)</option>
+                                <option value="Figs & Raisins">Figs & Raisins</option>
+                                <option value="Exotics">Exotics & Saffron</option>
+                                <option value="Gift Boxes">Gift Boxes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prod-model-input">3D Interactive Model Shape</label>
+                            <select id="prod-model-input">
+                                <option value="pistachio">Pistachio (Pista)</option>
+                                <option value="almond">Almond (Badam)</option>
+                                <option value="cashew">Cashew (Kaju)</option>
+                                <option value="walnut">Walnut (Akhrot)</option>
+                                <option value="date">Ajwa / Medjool Date</option>
+                                <option value="saffron">Saffron Jar</option>
+                                <option value="giftbox">Luxury Gift Box</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prod-price-input">Base Price (for 500g) *</label>
+                            <input type="number" id="prod-price-input" placeholder="e.g. 1850" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prod-stock-input">Stock Quantity (Units) *</label>
+                            <input type="number" id="prod-stock-input" placeholder="e.g. 50" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prod-badge-input">Card Badge (Optional)</label>
+                            <input type="text" id="prod-badge-input" placeholder="e.g. Bestseller, Organic, Grade A">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prod-img-input">Image URL</label>
+                            <input type="url" id="prod-img-input" placeholder="https://..." value="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80">
+                        </div>
+
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label for="prod-desc-input">Detailed Description</label>
+                            <textarea id="prod-desc-input" rows="3" placeholder="Describe texture, flavor, harvest origin, and nutritional highlights..."></textarea>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+                        <button type="button" class="btn btn-outline" onclick="document.getElementById('product-modal').classList.remove('open')">Cancel</button>
+                        <button type="submit" class="btn-primary"><i class="fas fa-check"></i> Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER DETAILS MODAL -->
+    <div class="admin-modal-overlay" id="order-details-modal">
+        <div class="admin-modal-card">
+            <div class="admin-modal-header">
+                <div>
+                    <h3 style="display: flex; align-items: center; gap: 8px;">
+                        <span>Order Details</span>
+                        <span id="modal-order-id" style="color: var(--gold);">#AKA-0000</span>
+                    </h3>
+                    <span id="modal-order-date" style="font-size: 0.82rem; color: var(--text-muted);"></span>
+                </div>
+                <button class="btn-icon" id="close-order-details-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <div class="order-details-grid">
+                    <div class="order-detail-item">
+                        <span>Customer Name:</span>
+                        <strong id="modal-cust-name">-</strong>
+                    </div>
+                    <div class="order-detail-item">
+                        <span>Contact Phone:</span>
+                        <strong id="modal-cust-phone">-</strong>
+                    </div>
+                    <div class="order-detail-item">
+                        <span>Email:</span>
+                        <strong id="modal-cust-email">-</strong>
+                    </div>
+                    <div class="order-detail-item">
+                        <span>Order Status:</span>
+                        <div id="modal-order-status-badge"></div>
+                    </div>
+                    <div class="order-detail-item" style="grid-column: 1 / -1;">
+                        <span>Delivery Address:</span>
+                        <strong id="modal-cust-address">-</strong>
+                    </div>
+                    <div class="order-detail-item" style="grid-column: 1 / -1;">
+                        <span>Customer Notes:</span>
+                        <strong id="modal-order-notes">-</strong>
+                    </div>
+                    <div class="order-detail-item">
+                        <span>Payment Method:</span>
+                        <strong id="modal-payment-method">-</strong>
+                    </div>
+                </div>
+
+                <!-- Items Purchased -->
+                <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: var(--primary);">Items in this Order:</h4>
+                <div id="modal-order-items-list" style="margin-bottom: 16px;"></div>
+
+                <!-- Bill Totals -->
+                <div style="background: #f8fafc; padding: 14px; border-radius: 8px; border: 1px solid var(--admin-border);">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 4px;">
+                        <span>Subtotal:</span>
+                        <strong id="modal-order-subtotal">Rs. 0</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px;">
+                        <span>Delivery Fee:</span>
+                        <span id="modal-order-shipping">Rs. 0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 800; color: var(--primary); padding-top: 6px; border-top: 1px dashed var(--admin-border);">
+                        <span>Total Payable:</span>
+                        <span id="modal-order-total">Rs. 0</span>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-whatsapp-chat" id="modal-cust-whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Chat with Customer on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
